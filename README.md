@@ -70,3 +70,9 @@ promise
   .then()
   .catch()
 ```
+
+## Chaining (encadenando promesas)
+
+Podemos encadenar múltiples métodos `.then()` y se ejecutarán secuencialmente, cuando la promesa anterior esté _resuelta_.
+
+Lo que sea que retornemos del `.then()` actual, se va a pasar como argumento del próximo.
