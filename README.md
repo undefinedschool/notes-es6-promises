@@ -84,3 +84,9 @@ Lo que sea que retornemos del `.then()` actual, se va a pasar como argumento del
 Una promesa también puede devolver otra promesa (después de todo, son objetos), que también encadenaremos usando `then()` y se ejecutará _sólo cuando la promesa anterior esté resuelta_.
 
 Si la promesa falla y tenemos un método `catch()`, se ejecutará para cualquier promesa que tengamos en la cadena.
+
+## Compatibilidad y soporte
+
+Esta feature de _ES6_ tiene soporte en todos los browsers modernos, pero no en IE. 
+
+Para navegadores sin soporte, podemos usar [polyfills](https://github.com/stefanpenner/es6-promise).
