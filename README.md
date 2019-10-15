@@ -50,7 +50,15 @@ Una Promesa se encuentra siempre en uno de los siguientes estados:
 
 ## Crear promesas
 
-Cuando creamos una _Promise_, le pasamos una función _callback_ como argumento.
+Cuando creamos una _Promise_, le pasamos una función _callback_ como argumento. Dentro de este _callback_, tenemos 2 parámetros: `resolve()` y `reject()`.
+
+### `resolve()` 
+
+Cuando el estado de la promesa pasa a estar _resuelto_ (`fullfiled`), se ejecuta el método `resolve()`. Podemos pasar argumentos que serán llevados al _callback_ del `.then()` en el método `resolve()`
+
+### `reject()`
+
+Es el método que ejecutamos si consideramos que la promesa _falló_ (o que debe ser rechazada). Podemos pasar cualquier mensaje de error como argumento, el cual será tomado en el _callback_ del método `catch()` (que se ejecuta sólo si la promesa falla).
 
 ```js
 const promise = new Promise((resolve, reject) => {
