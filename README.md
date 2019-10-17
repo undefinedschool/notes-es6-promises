@@ -90,3 +90,5 @@ Si la promesa falla y tenemos un método `catch()`, se ejecutará para cualquier
 Esta feature de _ES6_ tiene soporte en todos los browsers modernos, pero no en IE. 
 
 Para navegadores sin soporte, podemos usar [polyfills](https://github.com/stefanpenner/es6-promise).
+
+## `Promise.all` 
