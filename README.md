@@ -3,6 +3,12 @@
 Una _promesa_ es un **objeto** que representa un valor que puede estar disponible en algún momento del futuro, o nunca. 
 Este valor representa a su vez el resultado exitoso o fracaso de ejecutar una tarea **asincrónica**.
 
+Vamos a utilizar _promises_ para escribir código asincrónico, como hacer un re  uest a una API por medio de `fetch` o una consulta a una base de datos. 
+
+La principal ventaja frente a usar _callbacks_ (otra forma que tenemos de manejar asincronismo en JavaScript) es que las _promises_ nos proveen una alternativa para evitar caer en el [_callback hell_](http://callbackhell.com/), a través de una sintaxis más concisa, limpia y fácil de razonar. 
+
+Además diferencia de los _callbacks_, **las promesas se puede _componer_**, utilizando el resultado o _output_ de una como el _input_ de otra.
+
 ## Métodos
 
 Al tratarse de un objeto, las promesas tienen una _interfaz_ que nos permite interactuar con estas. 
