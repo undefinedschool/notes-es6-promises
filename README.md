@@ -2,13 +2,13 @@
 
 **Una _promesa_ en JavaScript es como una promesa en la vida real: nos comprometemos a hacer algo y esta acción tiene 2 resultados posibles, que se cumpla (_se resuelve exitosamente_) o no (_es rechazada_)**.
 
-Mas técnicamente, una _promesa_ es un **objeto** que representa un valor que puede estar disponible en algún momento del futuro, o nunca. Este valor representa a su vez el resultado exitoso o fracaso de ejecutar una tarea **asincrónica**.
+Mas técnicamente, una _promesa_ es un **objeto** que representa un valor que puede estar disponible en algún momento del futuro, o nunca. Es una _promesa de un valor futuro_. Este valor representa a su vez el resultado exitoso o fracaso de ejecutar una tarea **asincrónica**.
 
 Vamos a utilizar _promises_ para escribir código asincrónico, como hacer un re  uest a una API por medio de `fetch` o una consulta a una base de datos. 
 
 👉 La principal ventaja frente a usar _callbacks_ (otra forma que tenemos de manejar asincronismo en JavaScript) es que las _promises_ nos proveen una alternativa para evitar caer en el [_callback hell_](http://callbackhell.com/), a través de una sintaxis más concisa, limpia y fácil de razonar. 
 
-Además diferencia de los _callbacks_, **las promesas se puede _componer_**, utilizando el resultado o _output_ de una como el _input_ de otra.
+Además, a diferencia de los _callbacks_, **las promesas se pueden _componer_**, utilizando el resultado o _output_ de una como el _input_ de otra.
 
 ## Métodos
 
@@ -38,6 +38,12 @@ promise
 
 A través del método `catch()`, podemos centralizar el manejo de errores, resultando mucho más simple de mantener que utilizando, por ejemplo _callbacks_, ya que cualquier promesa que falle (sea rechazada) en una cadena de operaciones, va a terminar siendo manejada en un `catch()` al final y ya no necesitamos manejar los errores en cada operación asincrónica de forma separada.
 
+## tl;dr Para qué sirven?
+
+- nos permiten escribir _código asincrónico_ de forma más legible, evitando el [_Callback Hell_](http://callbackhell.com/)
+- nos permiten un [mejor manejo de los errores](https://github.com/undefinedschool/notes-es6-promises#error-handling)
+- las promesas se pueden _componer_, utilizando el resultado o _output_ de una como el _input_ de otra.
+
 ### Ejemplo usando [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 ```js
@@ -54,37 +60,36 @@ Una Promesa se encuentra siempre en uno de los siguientes estados:
 - resuelta (_fulfilled_): significa que la operación se completó exitosamente
 - rechazada (_rejected_): significa que la operación falló
 
-## Para qué sirven?
-
-- Nos permiten escribir _código asincrónico_ de forma más legible, evitando el [_Callback Hell_](http://callbackhell.com/)
-- Nos permite un [mejor manejo de los errores]()
-
 ## Crear promesas
 
-Cuando creamos una _Promise_, le pasamos una función _callback_ como argumento. Dentro de este _callback_, tenemos 2 parámetros: `resolve()` y `reject()`.
+Cuando creamos una _Promise_ (objeto), le tenemos que pasar una función _callback_ como argumento. Dentro de este _callback_, tenemos 2 parámetros: `resolve()` y `reject()`.
 
-### `resolve()` 
+- `resolve()`: cuando el estado de la promesa pasa a estar _resuelto_ (`fullfiled`), se ejecuta el método `resolve()`. Podemos pasar argumentos que serán llevados al _callback_ del `.then()` en el método `resolve()`
+- `reject()`: es el método que ejecutamos si consideramos que la promesa _falló_ (o que debe ser _rechazada_). Podemos pasar cualquier mensaje de error como argumento, el cual será tomado en el _callback_ del método `catch()` (que se ejecuta sólo si la promesa falla)
 
-Cuando el estado de la promesa pasa a estar _resuelto_ (`fullfiled`), se ejecuta el método `resolve()`. Podemos pasar argumentos que serán llevados al _callback_ del `.then()` en el método `resolve()`
-
-### `reject()`
-
-Es el método que ejecutamos si consideramos que la promesa _falló_ (o que debe ser rechazada). Podemos pasar cualquier mensaje de error como argumento, el cual será tomado en el _callback_ del método `catch()` (que se ejecuta sólo si la promesa falla).
+Entonces, cualquier valor que le pasemos al `resolve` va a poder ser accedido en el `then` cuando estemos _usando la promesa_ (y si esta se resuelve exitosamente) y cualquier valor que le pasemos al `reject` va a poder ser accedido en el `catch`, en el caso de que falle. Por ejemplo
 
 ```js
 const promise = new Promise((resolve, reject) => {
-  resolve('success!');
-  reject('FAIL.')
+  const a = 2;
+  
+  if (a === 2) {
+    resolve('success!');
+  } else {
+    reject('FAIL.');
+  }
 });
 
 promise
-  .then()
-  .catch()
+  .then(res => console.log(res))     // acá tenemos acceso al valor que retorna el `resolve`, loguea 'success!'
+  .catch(err => console.error(err)); // acá tenemos acceso al valor que retorna el `reject`, loguea 'FAIL.'
 ```
 
 ## Chaining 
 
 ### `then()`
+
+Como vimos antes, _las promesas se pueden componer_, es decir, usar los resultados de unas como input de otras.
 
 Podemos encadenar múltiples métodos `.then()` y se ejecutarán secuencialmente.
 
