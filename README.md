@@ -2,9 +2,9 @@
 
 **Una _promesa_ en JavaScript es como una promesa en la vida real: nos comprometemos a hacer algo y esta acción tiene 2 resultados posibles, que se cumpla (_se resuelve exitosamente_) o no (_es rechazada_)**.
 
-Mas técnicamente, una _promesa_ es un **objeto** que representa un valor que puede estar disponible en algún momento del futuro, o nunca. Es una _promesa de un valor futuro_. Este valor representa a su vez el resultado exitoso o fracaso de ejecutar una tarea **asincrónica**.
+> 👉 Mas técnicamente, una _promesa_ es un **objeto** que representa un valor que puede estar disponible en algún momento del futuro, o nunca. Es una _promesa de un valor futuro_. Este valor representa a su vez el resultado exitoso o fracaso de ejecutar una tarea **asincrónica**.
 
-Vamos a utilizar _promises_ para escribir código asincrónico, como hacer un re  uest a una API por medio de `fetch` o una consulta a una base de datos. 
+**Vamos a utilizar _promises_ para escribir _código asincrónico_**, es decir, tareas que sabemos no van a tener un resultado inmediato, sino que van a tomar cierto tiempo, por ejemplo hacer un request a una API por medio de `fetch`, descargar una imagen o realizar una consulta a una base de datos. 
 
 👉 La principal ventaja frente a usar _callbacks_ (otra forma que tenemos de manejar asincronismo en JavaScript) es que las _promises_ nos proveen una alternativa para evitar caer en el [_callback hell_](http://callbackhell.com/), a través de una sintaxis más concisa, limpia y fácil de razonar. 
 
@@ -109,7 +109,7 @@ Para navegadores sin soporte, podemos usar [polyfills](https://github.com/stefan
 
 ## `Promise.all` 
 
-Recibe un array de _promises_, las ejecuta y retorna una (nueva) _promesa a un array con los resultados_, si y sólo si todas las promesas se resuelven de forma exitosa.
+👉 Este método **recibe un array de _promises_, las ejecuta y retorna una (nueva) _promesa a un array con los resultados_, si y sólo si todas las promesas se resuelven de forma exitosa**.
 
 Si `p1`, `p2`, y `p3` son funciones que retornan promesas, entonces podríamos hacer
 
@@ -124,11 +124,13 @@ Promise.all([p1(), p2(), p3()])
 
 donde `res1`, `res2` y `res3` se corresponden con los valores de las promesas resueltas.
 
-👉 Como la respuesta es una promesa a un array, también podemos simplificar el código usando métodos de array, como `forEach`
+> 👉 Como la respuesta es una promesa a un array, también podemos simplificar el código usando métodos de array, como `forEach`
 
 ```js
 Promise.all([p1(), p2(), p3()])
   .then(results => results.forEach(res => console.log(res)));
 ```
+
+> 👉 **Vamos a utilizar `Promise.all()` cuando nos interese esperar a tener todas las promesas resueltas, independientemente del orden en que esto suceda** (podrían ser promesas que no tengan relación entre si), por eso resulta especialmente útil si estamos utilizando [`async/await`](https://github.com/undefinedschool/notes-es2017-async-await/), para de esta forma evitar esperas innecesarias en la ejecución
 
 [![JavaScript Promises In 10 Minutes](https://img.youtube.com/vi/DHvZLI7Db8E/0.jpg)](https://www.youtube.com/watch?v=DHvZLI7Db8E)
