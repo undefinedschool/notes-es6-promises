@@ -67,7 +67,7 @@ Cuando creamos una _Promise_ (objeto), le tenemos que pasar una función _callba
 - `resolve()`: cuando el estado de la promesa pasa a estar _resuelto_ (`fullfiled`), se ejecuta el método `resolve()`. Podemos pasar argumentos que serán llevados al _callback_ del `.then()` en el método `resolve()`
 - `reject()`: es el método que ejecutamos si consideramos que la promesa _falló_ (o que debe ser _rechazada_). Podemos pasar cualquier mensaje de error como argumento, el cual será tomado en el _callback_ del método `catch()` (que se ejecuta sólo si la promesa falla)
 
-Entonces, cualquier valor que le pasemos al `resolve` va a poder ser accedido en el `then` cuando estemos _usando la promesa_ (y si esta se resuelve exitosamente) y cualquier valor que le pasemos al `reject` va a poder ser accedido en el `catch`, en el caso de que falle. Por ejemplo
+👉 Entonces, **cualquier valor que le pasemos al `resolve` va a poder ser accedido en el `then` cuando estemos _usando la promesa_ (y si esta se resuelve exitosamente) y cualquier valor que le pasemos al `reject` va a poder ser accedido en el `catch`, en el caso de que falle**. Por ejemplo
 
 ```js
 const promise = new Promise((resolve, reject) => {
