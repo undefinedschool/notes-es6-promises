@@ -1,3 +1,8 @@
+> El siguiente contenido fue elaborado por [@_nhsz](https://twitter.com/_nhsz) como guía para las clases de [undefined school](https://twitter.com/undefinedSchool)
+> Son bienvenidos los _issues_ y _PRs_ para mejorar el contenido, corregir errores, etc. 
+
+> 👉 Si te resultó útil, **se agradece que lo compartas para que le llegue a más gente!**
+
 # [WIP] ✨ ES6: Promises
 
 **Una _promesa_ en JavaScript es como una promesa en la vida real: nos comprometemos a hacer algo y esta acción tiene 2 resultados posibles, que se cumpla (_se resuelve exitosamente_) o no (_es rechazada_)**.
