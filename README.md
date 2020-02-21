@@ -134,5 +134,11 @@ fetch('https://pokeapi.co/api/v2/pokemon/ditto/')
   .catch(x => console.log('fail. 😿'));
 ```
 
+### Promises, _microtasks_ y el _Event Loop_
+
+Resolver una Promise cuenta como una micro tarea (_micro tasks_), por lo que van a ejecutarse al inicio de la próxima iteración del _Event Loop_, teniendo prioridad sobre otras tareas (_macrotasks_).
+
+Para más detalles, ver [Notas sobre el _Event Loop_](https://github.com/undefinedschool/notes-event-loop)
+
 [![JavaScript Promises In 10 Minutes](https://img.youtube.com/vi/DHvZLI7Db8E/0.jpg)](https://www.youtube.com/watch?v=DHvZLI7Db8E)
 > Ver [JavaScript Promises In 10 Minutes](https://www.youtube.com/watch?v=DHvZLI7Db8E)
