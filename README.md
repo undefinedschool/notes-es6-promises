@@ -24,8 +24,9 @@ En particular, vamos a estar estar usando los metodos `.then()` y `.catch()`
 
 - `then()`: el código dentro se va a ejecutar _sólo si la promesa se resuelva de forma exitosa_
 - `catch()`: el código dentro se va a ejecutar en caso de error (_la promesa es rechazada_)
+- `all()`: permite ejecutar varias promesas de forma concurrente
 
-Los métodos `then()` y `catch()` devuelven a su vez promesas, que pueden ser encadenadas
+Los métodos `then()` y `catch()` **devuelven** a su vez **promesas**, **que pueden ser encadenadas**
 
 ```js
 promise
@@ -39,23 +40,14 @@ promise
 
 ![](https://i.imgur.com/xA4ea9r.png)
 
-## Error handling
-
-A través del método `catch()`, podemos centralizar el manejo de errores, resultando mucho más simple de mantener que utilizando, por ejemplo _callbacks_, ya que cualquier promesa que falle (sea rechazada) en una cadena de operaciones, va a terminar siendo manejada en un `catch()` al final y ya no necesitamos manejar los errores en cada operación asincrónica de forma separada.
-
 ## tl;dr Para qué sirven?
 
 - nos permiten escribir _código asincrónico_ de forma más legible, evitando el [_Callback Hell_](http://callbackhell.com/)
 - nos permiten un [mejor manejo de los errores](https://github.com/undefinedschool/notes-es6-promises#error-handling)
 - las promesas se pueden _componer_, utilizando el resultado o _output_ de una como el _input_ de otra.
 
-### Ejemplo usando [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-
-```js
-fetch('https://pokeapi.co/api/v2/pokemon/ditto/')
-  .then(x => console.log('success! 😸'))
-  .catch(x => console.log('fail. 😿'));
-```
+[![JavaScript Promise in 100 Seconds](https://img.youtube.com/vi/RvYYCGs45L4/0.jpg)](https://www.youtube.com/watch?v=RvYYCGs45L4)
+> Ver [JavaScript Promise in 100 Seconds](https://www.youtube.com/watch?v=RvYYCGs45L4)
 
 ## Estados de una promesa
 
@@ -94,15 +86,7 @@ promise
 
 ### `then()`
 
-Como vimos antes, _las promesas se pueden componer_, es decir, usar los resultados de unas como input de otras.
-
-Podemos encadenar múltiples métodos `.then()` y se ejecutarán secuencialmente.
-
-Lo que sea que retornemos del `.then()` actual, se va a pasar como argumento del próximo.
-
-### Promesas
-
-Una promesa también puede devolver otra promesa (después de todo, son objetos), que también encadenaremos usando `then()` y se ejecutará _sólo cuando la promesa anterior esté resuelta_.
+Una promesa también puede devolver otra promesa (después de todo, son objetos), que también encadenaremos usando `then()` y se ejecutará _sólo cuando la promesa anterior esté resuelta_. Por lo tanto, _las promesas se pueden componer_, es decir, usar los resultados de unas como input de otras.
 
 Si la promesa falla y tenemos un método `catch()`, se ejecutará para cualquier promesa que tengamos en la cadena.
 
@@ -138,4 +122,17 @@ Promise.all([p1(), p2(), p3()])
 
 > 👉 **Vamos a utilizar `Promise.all()` cuando nos interese esperar a tener todas las promesas resueltas, independientemente del orden en que esto suceda** (podrían ser promesas que no tengan relación entre si), por eso resulta especialmente útil si estamos utilizando [`async/await`](https://github.com/undefinedschool/notes-es2017-async-await/), para de esta forma evitar esperas innecesarias en la ejecución
 
+## Error handling
+
+A través del método `catch()`, podemos centralizar el manejo de errores, resultando mucho más simple de mantener que utilizando, por ejemplo _callbacks_, ya que cualquier promesa que falle (sea rechazada) en una cadena de operaciones, va a terminar siendo manejada en un `catch()` al final y ya no necesitamos manejar los errores en cada operación asincrónica de forma separada.
+
+### Ejemplo usando [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+
+```js
+fetch('https://pokeapi.co/api/v2/pokemon/ditto/')
+  .then(x => console.log('success! 😸'))
+  .catch(x => console.log('fail. 😿'));
+```
+
 [![JavaScript Promises In 10 Minutes](https://img.youtube.com/vi/DHvZLI7Db8E/0.jpg)](https://www.youtube.com/watch?v=DHvZLI7Db8E)
+> Ver [JavaScript Promises In 10 Minutes](https://www.youtube.com/watch?v=DHvZLI7Db8E)
