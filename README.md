@@ -24,7 +24,7 @@ En particular, vamos a estar estar usando los metodos `.then()` y `.catch()`
 
 - `then()`: el código dentro se va a ejecutar _sólo si la promesa se resuelva de forma exitosa_
 - `catch()`: el código dentro se va a ejecutar en caso de error (_la promesa es rechazada_)
-- `all()`: permite ejecutar varias promesas de forma concurrente
+- `all()`: permite ejecutar varias promesas de forma [concurrente](https://www.youtube.com/watch?v=kMr3mF71Kp4)
 
 Los métodos `then()` y `catch()` **devuelven** a su vez **promesas**, **que pueden ser encadenadas**
 
@@ -99,6 +99,8 @@ Para navegadores sin soporte, podemos usar [polyfills](https://github.com/stefan
 ## `Promise.all` 
 
 👉 Este método **recibe un array de _promises_, las ejecuta y retorna una (nueva) _promesa a un array con los resultados_, si y sólo si todas las promesas se resuelven de forma exitosa**.
+
+Permite ejecutar varias promesas de forma [_concurrente_](https://www.youtube.com/watch?v=kMr3mF71Kp4).
 
 Si `p1`, `p2`, y `p3` son funciones que retornan promesas, entonces podríamos hacer
 
