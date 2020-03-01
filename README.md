@@ -16,16 +16,16 @@
 
 - [Intro](https://github.com/undefinedschool/notes-es6-promises#intro)
 - [Métodos](https://github.com/undefinedschool/notes-es6-promises#m%C3%A9todos)
-- [Para qué sirven las Promises?]()
-- [Estados de una promesa]()
-- [Crear promesas]()
-- [Promise Chaining]()
-  - [`.then()`]()
-- [`Promise.all`]()
-- [Error handling]()
-  - [Ejemplo usando _Fetch API_]()
-- [Promises, _microtasks_ y el _Event Loop_]()
-- [Compatibilidad y soporte]()
+- [tl;dr Para qué sirven las Promises?](https://github.com/undefinedschool/notes-es6-promises#tldr-para-qu%C3%A9-sirven-las-promises)
+- [Estados de una promesa](https://github.com/undefinedschool/notes-es6-promises#estados-de-una-promesa)
+- [Crear promesas](https://github.com/undefinedschool/notes-es6-promises#crear-promesas)
+- [Promise Chaining](https://github.com/undefinedschool/notes-es6-promises#promise-chaining)
+  - [`.then()`](https://github.com/undefinedschool/notes-es6-promises#then)
+- [`Promise.all`](https://github.com/undefinedschool/notes-es6-promises#promiseall)
+- [Error handling](https://github.com/undefinedschool/notes-es6-promises#error-handling)
+  - [Ejemplo usando _Fetch API_](https://github.com/undefinedschool/notes-es6-promises#ejemplo-usando-fetch-api)
+- [Promises, _microtasks_ y el _Event Loop_](https://github.com/undefinedschool/notes-es6-promises#promises-microtasks-y-el-event-loop)
+- [Compatibilidad y soporte](https://github.com/undefinedschool/notes-es6-promises#compatibilidad-y-soporte)
 
 ---
 
