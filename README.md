@@ -5,6 +5,32 @@
 
 # ![Notas de ES6: Promises](https://i.imgur.com/8b9NlbD.png)
 
+## Notas sobre Asincronismo en JS
+
+- [Callbacks](https://github.com/undefinedschool/notes-callbacks)
+- [ES6: Promises](https://github.com/undefinedschool/notes-es6-promises)
+- [ES2017: Async/Await](https://github.com/undefinedschool/notes-es2017-async-await)
+- [Event Loop](https://github.com/undefinedschool/notes-event-loop)
+
+## Contenido
+
+- [Intro](https://github.com/undefinedschool/notes-es6-promises#intro)
+- [Métodos](https://github.com/undefinedschool/notes-es6-promises#m%C3%A9todos)
+- [Para qué sirven las Promises?]()
+- [Estados de una promesa]()
+- [Crear promesas]()
+- [Promise Chaining]()
+  - [`.then()`]()
+- [`Promise.all`]()
+- [Error handling]()
+  - [Ejemplo usando _Fetch API_]()
+- [Promises, _microtasks_ y el _Event Loop_]()
+- [Compatibilidad y soporte]()
+
+---
+
+## Intro
+
 **Una _promesa_ en JavaScript es como una promesa en la vida real: nos comprometemos a hacer algo y esta acción tiene 2 resultados posibles, que se cumpla (_se resuelve exitosamente_) o no (_es rechazada_)**.
 
 > 👉 Mas técnicamente, una _promesa_ es un **objeto** que representa un valor que puede estar disponible en algún momento del futuro, o nunca. Es una _promesa de un valor futuro_. Este valor representa a su vez el resultado exitoso o fracaso de ejecutar una tarea **asincrónica**.
@@ -40,7 +66,7 @@ promise
 
 ![](https://i.imgur.com/xA4ea9r.png)
 
-## tl;dr Para qué sirven?
+## tl;dr Para qué sirven las Promises?
 
 - nos permiten escribir _código asincrónico_ de forma más legible, evitando el [_Callback Hell_](http://callbackhell.com/)
 - nos permiten un [mejor manejo de los errores](https://github.com/undefinedschool/notes-es6-promises#error-handling)
@@ -82,19 +108,13 @@ promise
   .catch(err => console.error(err)); // acá tenemos acceso al valor que retorna el `reject`, loguea 'FAIL.'
 ```
 
-## Chaining 
+## Promise Chaining 
 
 ### `then()`
 
 Una promesa también puede devolver otra promesa (después de todo, son objetos), que también encadenaremos usando `then()` y se ejecutará _sólo cuando la promesa anterior esté resuelta_. Por lo tanto, _las promesas se pueden componer_, es decir, usar los resultados de unas como input de otras.
 
 Si la promesa falla y tenemos un método `catch()`, se ejecutará para cualquier promesa que tengamos en la cadena.
-
-## Compatibilidad y soporte
-
-Esta feature de _ES6_ tiene soporte en todos los browsers modernos, pero no en IE. 
-
-Para navegadores sin soporte, podemos usar [polyfills](https://github.com/stefanpenner/es6-promise).
 
 ## `Promise.all` 
 
@@ -136,7 +156,7 @@ fetch('https://pokeapi.co/api/v2/pokemon/ditto/')
   .catch(x => console.log('fail. 😿'));
 ```
 
-### Promises, _microtasks_ y el _Event Loop_
+## Promises, _microtasks_ y el _Event Loop_
 
 Resolver una Promise cuenta como una micro tarea (_micro tasks_), por lo que van a ejecutarse al inicio de la próxima iteración del _Event Loop_, teniendo prioridad sobre otras tareas (_macrotasks_).
 
@@ -144,3 +164,9 @@ Para más detalles, ver [Notas sobre el _Event Loop_](https://github.com/undefin
 
 [![JavaScript Promises In 10 Minutes](https://img.youtube.com/vi/DHvZLI7Db8E/0.jpg)](https://www.youtube.com/watch?v=DHvZLI7Db8E)
 > Ver [JavaScript Promises In 10 Minutes](https://www.youtube.com/watch?v=DHvZLI7Db8E)
+
+## Compatibilidad y soporte
+
+Esta feature de _ES6_ tiene soporte en todos los browsers modernos, pero no en IE. 
+
+Para navegadores sin soporte, podemos usar [polyfills](https://github.com/stefanpenner/es6-promise).
