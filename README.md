@@ -42,6 +42,9 @@
 
 Además, a diferencia de los _callbacks_, **las promesas se pueden _componer_**, utilizando el resultado o _output_ de una como el _input_ de otra.
 
+
+[↑ Ir al inicio](https://github.com/undefinedschool/notes-es6-promises#contenido)
+
 ## Métodos
 
 Al tratarse de un objeto, las promesas tienen una _interfaz_ que nos permite interactuar con estas. 
@@ -67,6 +70,8 @@ promise
 
 ![](https://i.imgur.com/xA4ea9r.png)
 
+[↑ Ir al inicio](https://github.com/undefinedschool/notes-es6-promises#contenido)
+
 ## tl;dr Para qué sirven las Promises?
 
 - nos permiten escribir _código asincrónico_ de forma más legible, evitando el [_Callback Hell_](http://callbackhell.com/)
@@ -76,6 +81,8 @@ promise
 [![JavaScript Promise in 100 Seconds](https://img.youtube.com/vi/RvYYCGs45L4/0.jpg)](https://www.youtube.com/watch?v=RvYYCGs45L4)
 > Ver [JavaScript Promise in 100 Seconds](https://www.youtube.com/watch?v=RvYYCGs45L4)
 
+[↑ Ir al inicio](https://github.com/undefinedschool/notes-es6-promises#contenido)
+
 ## Estados de una promesa
 
 Una Promesa se encuentra siempre en uno de los siguientes estados:
@@ -83,6 +90,8 @@ Una Promesa se encuentra siempre en uno de los siguientes estados:
 - pendiente (_pending_): estado inicial de cualquier promesa, no cumplida o rechazada aún
 - resuelta (_fulfilled_): significa que la operación se completó exitosamente
 - rechazada (_rejected_): significa que la operación falló
+
+[↑ Ir al inicio](https://github.com/undefinedschool/notes-es6-promises#contenido)
 
 ## Crear promesas
 
@@ -109,6 +118,8 @@ promise
   .catch(err => console.error(err)); // acá tenemos acceso al valor que retorna el `reject`, loguea 'FAIL.'
 ```
 
+[↑ Ir al inicio](https://github.com/undefinedschool/notes-es6-promises#contenido)
+
 ## Promise Chaining 
 
 ### `then()`
@@ -116,6 +127,8 @@ promise
 Una promesa también puede devolver otra promesa (después de todo, son objetos), que también encadenaremos usando `then()` y se ejecutará _sólo cuando la promesa anterior esté resuelta_. Por lo tanto, _las promesas se pueden componer_, es decir, usar los resultados de unas como input de otras.
 
 Si la promesa falla y tenemos un método `catch()`, se ejecutará para cualquier promesa que tengamos en la cadena.
+
+[↑ Ir al inicio](https://github.com/undefinedschool/notes-es6-promises#contenido)
 
 ## `Promise.all` 
 
@@ -145,9 +158,13 @@ Promise.all([p1(), p2(), p3()])
 
 > 👉 **Vamos a utilizar `Promise.all()` cuando nos interese esperar a tener todas las promesas resueltas, independientemente del orden en que esto suceda** (podrían ser promesas que no tengan relación entre si), por eso resulta especialmente útil si estamos utilizando [`async/await`](https://github.com/undefinedschool/notes-es2017-async-await/), para de esta forma evitar esperas innecesarias en la ejecución
 
+[↑ Ir al inicio](https://github.com/undefinedschool/notes-es6-promises#contenido)
+
 ## Error handling
 
 A través del método `catch()`, podemos centralizar el manejo de errores, resultando mucho más simple de mantener que utilizando, por ejemplo _callbacks_, ya que cualquier promesa que falle (sea rechazada) en una cadena de operaciones, va a terminar siendo manejada en un `catch()` al final y ya no necesitamos manejar los errores en cada operación asincrónica de forma separada.
+
+[↑ Ir al inicio](https://github.com/undefinedschool/notes-es6-promises#contenido)
 
 ### Ejemplo usando [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
@@ -156,6 +173,8 @@ fetch('https://pokeapi.co/api/v2/pokemon/ditto/')
   .then(x => console.log('success! 😸'))
   .catch(x => console.log('fail. 😿'));
 ```
+
+[↑ Ir al inicio](https://github.com/undefinedschool/notes-es6-promises#contenido)
 
 ## Promises, _microtasks_ y el _Event Loop_
 
@@ -166,8 +185,12 @@ Para más detalles, ver [Notas sobre el _Event Loop_](https://github.com/undefin
 [![JavaScript Promises In 10 Minutes](https://img.youtube.com/vi/DHvZLI7Db8E/0.jpg)](https://www.youtube.com/watch?v=DHvZLI7Db8E)
 > Ver [JavaScript Promises In 10 Minutes](https://www.youtube.com/watch?v=DHvZLI7Db8E)
 
+[↑ Ir al inicio](https://github.com/undefinedschool/notes-es6-promises#contenido)
+
 ## Compatibilidad y soporte
 
 Esta feature de _ES6_ tiene soporte en todos los browsers modernos, pero no en IE. 
 
 Para navegadores sin soporte, podemos usar [polyfills](https://github.com/stefanpenner/es6-promise).
+
+[↑ Ir al inicio](https://github.com/undefinedschool/notes-es6-promises#contenido)
