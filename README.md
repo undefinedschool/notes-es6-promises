@@ -5,12 +5,13 @@
 
 # ![Notas de ES6: Promises](https://i.imgur.com/8b9NlbD.png)
 
-## Notas sobre Asincronismo en JS
+## Notas relacionadas
 
-- [Callbacks](https://github.com/undefinedschool/notes-callbacks)
-- [ES6: Promises](https://github.com/undefinedschool/notes-es6-promises)
-- [ES2017: Async/Await](https://github.com/undefinedschool/notes-es2017-async-await)
-- [Event Loop](https://github.com/undefinedschool/notes-event-loop)
+### `async`
+
+- [**Callbacks**](https://github.com/undefinedschool/notes-callbacks)
+- [**ES2017: Async/Await**](https://github.com/undefinedschool/notes-es2017-async-await)
+- [**Event Loop**](https://github.com/undefinedschool/notes-event-loop)
 
 ## Contenido
 
